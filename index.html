@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandt Haustechnik — Klempner & Heizung Göttingen</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;800&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--dk:#0f1a0f;--green:#2d5a27;--lime:#7ab648;--mid:#3a5235;--mist:#8aab7e;--warm:#f5f2ec;--white:#ffffff;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--white);color:var(--dk);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(15,26,15,0.08);}
+.nav-brand{font-size:18px;font-weight:800;color:var(--dk);}.nav-brand span{color:var(--lime);}
+.nav-links{display:flex;gap:32px;list-style:none;}.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);text-decoration:none;}
+.nav-tel{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--green);text-decoration:none;border:1.5px solid var(--green);padding:8px 18px;}
+.hero{min-height:100vh;background:var(--dk);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:120px 48px 80px;position:relative;z-index:2;}
+.hero-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--mist);text-transform:uppercase;margin-bottom:24px;}
+.hero-h1{font-size:clamp(42px,5vw,72px);font-weight:800;line-height:1.0;color:var(--white);margin-bottom:24px;letter-spacing:-1px;}
+.hero-h1 em{color:var(--lime);font-style:normal;}
+.hero-sub{font-size:16px;font-weight:300;color:var(--mist);line-height:1.7;max-width:420px;margin-bottom:40px;}
+.btn-main{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:var(--lime);color:var(--dk);padding:14px 28px;text-decoration:none;display:inline-block;}
+.hero-right{background:var(--green);display:flex;align-items:center;justify-content:center;position:relative;}
+.hero-icon{font-size:120px;opacity:0.15;position:absolute;}
+.hero-badge{position:relative;z-index:2;text-align:center;}
+.badge-num{font-size:80px;font-weight:800;color:var(--white);line-height:1;}
+.badge-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--lime);text-transform:uppercase;margin-top:8px;}
+section{padding:96px 48px;}
+.sec-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--lime);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.sec-tag::before{content:'';display:block;width:28px;height:2px;background:var(--lime);}
+.sec-title{font-size:clamp(28px,4vw,48px);font-weight:800;color:var(--dk);letter-spacing:-0.5px;margin-bottom:56px;line-height:1.1;}
+.services{background:var(--white);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;}
+.srv{background:var(--warm);padding:36px 28px;border-left:3px solid transparent;transition:all .25s;}
+.srv:hover{background:var(--dk);border-left-color:var(--lime);}
+.srv:hover .srv-name{color:var(--white);}.srv:hover .srv-desc{color:var(--mist);}
+.srv-ico{font-size:32px;margin-bottom:16px;}
+.srv-name{font-size:17px;font-weight:800;color:var(--dk);margin-bottom:10px;transition:color .25s;}
+.srv-desc{font-size:13px;font-weight:300;color:var(--mid);line-height:1.6;transition:color .25s;}
+.trust{background:var(--lime);padding:48px;}
+.trust-inner{display:flex;gap:0;justify-content:space-around;flex-wrap:wrap;}
+.trust-item{text-align:center;padding:24px 32px;}
+.trust-num{font-size:48px;font-weight:800;color:var(--dk);line-height:1;}
+.trust-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--dk);text-transform:uppercase;margin-top:6px;opacity:0.7;}
+.about{padding:96px 48px;background:var(--warm);}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img{background:var(--green);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;}
+.about-img-icon{font-size:96px;opacity:0.2;}
+.about-img-badge{position:absolute;bottom:24px;left:24px;background:var(--lime);padding:16px 20px;}
+.about-img-badge-num{font-size:28px;font-weight:800;color:var(--dk);line-height:1;}
+.about-img-badge-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--dk);text-transform:uppercase;opacity:0.7;}
+.about-text p{font-size:16px;font-weight:300;color:var(--mid);line-height:1.8;margin-bottom:20px;}
+.about-text strong{color:var(--dk);font-weight:800;}
+.about-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+.about-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mid);}
+.about-list li::before{content:'✓';color:var(--lime);font-weight:800;}
+.contact{padding:96px 48px;background:var(--dk);}
+.contact .sec-tag{color:var(--lime);}.contact .sec-tag::before{background:var(--lime);}
+.contact .sec-title{color:var(--white);}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+.cinfo{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;}
+.cinfo-icon{font-size:20px;flex-shrink:0;}
+.cinfo-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--lime);text-transform:uppercase;margin-bottom:4px;}
+.cinfo-val{font-size:15px;font-weight:300;color:var(--mist);}
+.emergency{background:var(--green);padding:24px 28px;margin-top:8px;}
+.emergency-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--lime);text-transform:uppercase;margin-bottom:8px;}
+.emergency-num{font-size:28px;font-weight:800;color:var(--white);}
+.emergency-sub{font-size:12px;font-weight:300;color:var(--mist);margin-top:4px;}
+.form{display:flex;flex-direction:column;gap:14px;}
+.finput,.ftextarea{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--white);padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:300;outline:none;width:100%;}
+.ftextarea{resize:vertical;min-height:110px;}
+.finput::placeholder,.ftextarea::placeholder{color:var(--mist);}
+.flabel{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--lime);text-transform:uppercase;margin-bottom:4px;display:block;}
+.fbtn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:var(--lime);color:var(--dk);padding:16px 28px;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;}
+.fbtn::after{content:'→';font-size:15px;}
+footer{background:#070f07;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-brand{font-size:16px;font-weight:800;color:var(--white);}.footer-brand span{color:var(--lime);}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mist);}
+.footer-links{display:flex;gap:20px;}.footer-links a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mist);text-decoration:none;}
+.netvar-credit{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(138,171,126,0.4);}
+.netvar-credit a{color:rgba(138,171,126,0.5);text-decoration:none;}
+@media(max-width:768px){nav{padding:16px 24px;}.nav-links{display:none;}.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 64px;}section,.about,.contact{padding:64px 24px;}.about-inner,.contact-inner{grid-template-columns:1fr;gap:40px;}footer{padding:24px;}}
+</style>
+</head>
+<body>
+<nav>
+  <span class="nav-brand">Brandt<span>.</span>Haustechnik</span>
+  <ul class="nav-links"><li><a href="#leistungen">Leistungen</a></li><li><a href="#ueber">Über uns</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <a href="tel:+495511234567" class="nav-tel">☎ 0551 — 123 456 7</a>
+</nav>
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Klempner & Heizung — Göttingen</p>
+    <h1 class="hero-h1">Rohre.<br/>Heizung.<br/><em>Erledigt.</em></h1>
+    <p class="hero-sub">Schnelle, zuverlässige Klempnerarbeiten für Privathaushalte und Gewerbe in Göttingen und Umgebung. Notdienst 24/7.</p>
+    <a href="#kontakt" class="btn-main">Jetzt anfragen</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-icon">🔧</div>
+    <div class="hero-badge"><div class="badge-num">24/7</div><div class="badge-label">Notdienst</div></div>
+  </div>
+</section>
+<section class="services" id="leistungen">
+  <div class="sec-tag">Leistungen</div><h2 class="sec-title">Was wir für Sie tun.</h2>
+  <div class="services-grid">
+    <div class="srv"><div class="srv-ico">🚿</div><div class="srv-name">Sanitär & Bad</div><div class="srv-desc">Installation, Reparatur und Modernisierung aller Sanitäranlagen. Von der Armatur bis zur kompletten Badsanierung.</div></div>
+    <div class="srv"><div class="srv-ico">🔥</div><div class="srv-name">Heizungsanlagen</div><div class="srv-desc">Einbau, Wartung und Reparatur von Heizungsanlagen. Gas, Öl, Wärmepumpe — wir kennen jedes System.</div></div>
+    <div class="srv"><div class="srv-ico">💧</div><div class="srv-name">Rohrreparatur</div><div class="srv-desc">Rohrbruch, Leckage oder Verstopfung — wir sind schnell vor Ort und beheben das Problem dauerhaft.</div></div>
+    <div class="srv"><div class="srv-ico">🚨</div><div class="srv-name">Notdienst 24/7</div><div class="srv-desc">Wasserrohrbruch um 3 Uhr nachts? Kein Problem. Unser Notdienst ist rund um die Uhr erreichbar.</div></div>
+  </div>
+</section>
+<div class="trust"><div class="trust-inner">
+  <div class="trust-item"><div class="trust-num">18</div><div class="trust-label">Jahre Erfahrung</div></div>
+  <div class="trust-item"><div class="trust-num">1.200+</div><div class="trust-label">Zufriedene Kunden</div></div>
+  <div class="trust-item"><div class="trust-num">24/7</div><div class="trust-label">Notdienst</div></div>
+  <div class="trust-item"><div class="trust-num">2h</div><div class="trust-label">Reaktionszeit</div></div>
+</div></div>
+<div class="about" id="ueber"><div class="about-inner">
+  <div class="about-img"><div class="about-img-icon">🔧</div><div class="about-img-badge"><div class="about-img-badge-num">2006</div><div class="about-img-badge-label">Gegründet</div></div></div>
+  <div class="about-text">
+    <div class="sec-tag" style="margin-bottom:12px;">Über uns</div>
+    <h2 class="sec-title" style="margin-bottom:20px;">Familie Brandt.<br/>Seit 18 Jahren.</h2>
+    <p>Brandt Haustechnik ist ein <strong>familiengeführter Handwerksbetrieb</strong> aus Göttingen. Seit 2006 kümmern wir uns um die Sanitär- und Heizungsanlagen unserer Kunden.</p>
+    <ul class="about-list"><li>Meisterbetrieb — staatlich geprüft</li><li>Festpreise — keine bösen Überraschungen</li><li>Notdienst — 24 Stunden, 7 Tage</li><li>Kostenloser Kostenvoranschlag</li></ul>
+  </div>
+</div></div>
+<div class="contact" id="kontakt">
+  <div class="sec-tag">Kontakt</div><h2 class="sec-title" style="margin-bottom:48px;">Jetzt anfragen.</h2>
+  <div class="contact-inner">
+    <div>
+      <div class="cinfo"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Adresse</div><div class="cinfo-val">Musterstraße 12, 37073 Göttingen</div></div></div>
+      <div class="cinfo"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Telefon</div><div class="cinfo-val">0551 — 123 456 7</div></div></div>
+      <div class="cinfo"><div class="cinfo-icon">🕐</div><div><div class="cinfo-label">Öffnungszeiten</div><div class="cinfo-val">Mo–Fr 7:00–18:00 Uhr</div></div></div>
+      <div class="emergency" style="margin-top:32px;"><div class="emergency-label">☎ Notdienst — 24/7</div><div class="emergency-num">0551 — 999 000</div><div class="emergency-sub">Rund um die Uhr erreichbar</div></div>
+    </div>
+    <div class="form">
+      <div><label class="flabel">Ihr Name</label><input type="text" class="finput" placeholder="Max Mustermann"></div>
+      <div><label class="flabel">Telefon</label><input type="tel" class="finput" placeholder="0551 — — —"></div>
+      <div><label class="flabel">Ihr Anliegen</label><textarea class="ftextarea" placeholder="Kurze Beschreibung des Problems..."></textarea></div>
+      <button class="fbtn">Anfrage senden</button>
+    </div>
+  </div>
+</div>
+<footer>
+  <span class="footer-brand">Brandt<span>.</span>Haustechnik</span>
+  <span class="footer-copy">© 2026 Brandt Haustechnik — Göttingen</span>
+  <div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  <span class="netvar-credit">Website von <a href="https://netvarstudio.de">Netvar Studio</a></span>
+</footer>
+</body>
+</html>
