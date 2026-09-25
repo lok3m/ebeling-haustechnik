@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+:root {
+  --ground: #1c2024;
+  --cell: #262b30;
+  --cell-raised: #2f353b;
+  --line: #3b424a;
+  --ink: #f2efe9;
+  --ink-mute: #b3aea6;
+  --copper: #e0782c;
+  --copper-deep: #c4661f;
+  --on-copper: #1c2024;
+  --on-copper-mute: #2f1a0a;
+  --field-line: #66717b;
+  --steel: #2c5470;
+  --steel-ink: #f2efe9;
+  --steel-mute: #cfe0ea;
+  --ok: #7fc48a;
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-cell: var(--cell);
+  --color-cell-raised: var(--cell-raised);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-mute: var(--ink-mute);
+  --color-copper: var(--copper);
+  --color-copper-deep: var(--copper-deep);
+  --color-on-copper: var(--on-copper);
+  --color-on-copper-mute: var(--on-copper-mute);
+  --color-steel: var(--steel);
+  --color-steel-ink: var(--steel-ink);
+  --color-steel-mute: var(--steel-mute);
+  --color-ok: var(--ok);
+  --font-sans:
+    "Manrope Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:
+    "JetBrains Mono Variable", ui-monospace, "Cascadia Mono", monospace;
+  --radius-cell: 8px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv05";
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--copper);
+    outline-offset: 3px;
+  }
+
+  .bg-copper :focus-visible {
+    outline-color: var(--on-copper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Mono caps label used as every cell header. No icons anywhere. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .cell {
+    background-color: var(--cell);
+    border-radius: var(--radius-cell);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .cell {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .cell {
+      transition: transform 160ms ease-out;
+    }
+    .cell:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* Bento: named areas per breakpoint. Mobile order = priority order for someone with a burst pipe. */
+  .bento {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "notdienst"
+      "rohr"
+      "hours"
+      "heizung"
+      "sanitaer"
+      "facts"
+      "ablauf"
+      "area"
+      "familie"
+      "kontakt"
+      "form";
+  }
+
+  @media (min-width: 640px) {
+    .bento {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "notdienst notdienst"
+        "rohr hours"
+        "heizung heizung"
+        "sanitaer area"
+        "facts facts"
+        "ablauf ablauf"
+        "familie kontakt"
+        "form form";
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bento {
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-areas:
+        "notdienst notdienst rohr hours"
+        "notdienst notdienst heizung heizung"
+        "sanitaer area facts facts"
+        "ablauf ablauf familie familie"
+        "form form form kontakt";
+    }
+  }
+
+  .area-notdienst {
+    grid-area: notdienst;
+  }
+  .area-rohr {
+    grid-area: rohr;
+  }
+  .area-hours {
+    grid-area: hours;
+  }
+  .area-heizung {
+    grid-area: heizung;
+  }
+  .area-sanitaer {
+    grid-area: sanitaer;
+  }
+  .area-facts {
+    grid-area: facts;
+  }
+  .area-ablauf {
+    grid-area: ablauf;
+  }
+  .area-area {
+    grid-area: area;
+  }
+  .area-familie {
+    grid-area: familie;
+  }
+  .area-kontakt {
+    grid-area: kontakt;
+  }
+  .area-form {
+    grid-area: form;
+  }
+
+  /* Scroll reveal: only when JS is present and motion allowed. Without JS everything is visible. */
+  @media (prefers-reduced-motion: no-preference) {
+    html[data-js] [data-reveal] {
+      opacity: 0;
+      transform: translateY(8px);
+      transition:
+        opacity 360ms ease-out,
+        transform 360ms ease-out;
+    }
+    html[data-js] [data-reveal].is-in {
+      opacity: 1;
+      transform: none;
+    }
+    html[data-js] .cell[data-reveal].is-in:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    background-color: var(--ground);
+    border: 1px solid var(--field-line);
+    border-radius: 6px;
+    color: var(--ink);
+    padding: 0.75rem 0.875rem;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--ink-mute);
+    opacity: 0.7;
+  }
+
+  .field input:focus-visible,
+  .field textarea:focus-visible {
+    outline-offset: 0;
+    border-color: var(--copper);
+  }
+
+  .status-dot::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2px;
+    background-color: var(--ink-mute);
+    margin-right: 0.5rem;
+    vertical-align: 0.05em;
+  }
+
+  .status-dot[data-state="open"]::before {
+    background-color: var(--ok);
+  }
+
+  .status-dot[data-state="closed"]::before {
+    background-color: var(--copper);
+  }
+
+  .prose-legal h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-legal h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-legal p,
+  .prose-legal li {
+    color: var(--ink-mute);
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-legal ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .prose-legal a {
+    color: var(--copper);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .prose-legal h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .prose-legal strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+}

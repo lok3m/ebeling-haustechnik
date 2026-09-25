@@ -1,0 +1,107 @@
+---
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/manrope';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+}
+
+const { title, description, path } = Astro.props;
+const site = Astro.site ?? new URL('https://brandt-haustechnik.vercel.app');
+const canonical = new URL(path, site).href;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#1c2024" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ebeling Haustechnik" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="de_DE" />
+    <script is:inline>document.documentElement.setAttribute('data-js', '');</script>
+    <slot name="head" />
+  </head>
+  <body class="min-h-dvh bg-ground font-sans text-ink antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-cell focus:bg-copper focus:px-4 focus:py-2 focus:font-semibold focus:text-on-copper"
+    >
+      Zum Inhalt springen
+    </a>
+
+    <header class="sticky top-0 z-40 border-line border-b bg-ground/95 backdrop-blur-sm">
+      <div class="mx-auto flex h-14 max-w-[1200px] items-center justify-between gap-4 px-4 sm:px-6">
+        <a href="/" class="flex items-baseline gap-2 font-bold text-[15px] tracking-tight sm:text-base">
+          <span aria-hidden="true" class="inline-block h-3 w-3 translate-y-px rounded-[2px] bg-copper"></span>
+          Ebeling Haustechnik
+        </a>
+        <nav aria-label="Hauptnavigation" class="hidden items-center gap-6 md:flex">
+          <a href="/#leistungen" class="label text-ink-mute hover:text-ink">Leistungen</a>
+          <a href="/#anfrage" class="label text-ink-mute hover:text-ink">Termin</a>
+          <a href="/impressum" class="label text-ink-mute hover:text-ink">Impressum</a>
+        </nav>
+        <a
+          href="tel:+49551999000"
+          class="num flex items-center gap-2 rounded-cell border border-copper px-3 py-1.5 font-semibold text-[13px] text-copper hover:bg-copper hover:text-on-copper sm:text-sm"
+        >
+          <span class="label hidden sm:inline">Notdienst</span>
+          0551 999 000
+        </a>
+      </div>
+    </header>
+
+    <main id="main" class="mx-auto max-w-[1200px] px-4 sm:px-6">
+      <slot />
+    </main>
+
+    <footer class="mx-auto max-w-[1200px] px-4 pt-10 pb-8 sm:px-6">
+      <div class="flex flex-col gap-4 border-line border-t pt-6 text-ink-mute text-sm sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          <span class="font-semibold text-ink">Ebeling Haustechnik</span>
+          <span class="mx-2" aria-hidden="true">/</span>
+          Musterstraße 12, 37073 Göttingen
+        </p>
+        <nav aria-label="Rechtliches" class="flex gap-5">
+          <a href="/impressum" class="label hover:text-ink">Impressum</a>
+          <a href="/datenschutz" class="label hover:text-ink">Datenschutz</a>
+        </nav>
+      </div>
+      <p class="mt-4 text-ink-mute text-xs">
+        Demo-Website von <a href="https://www.netvarstudio.de" class="underline underline-offset-4 hover:text-ink" rel="noopener">Netvar Studio</a>. Alle Angaben zum Betrieb sind Beispieldaten.
+      </p>
+    </footer>
+
+    <script>
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const items = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      if (reduce || !('IntersectionObserver' in window)) {
+        for (const el of items) el.classList.add('is-in');
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-in');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+        );
+        for (const el of items) io.observe(el);
+      }
+    </script>
+  </body>
+</html>

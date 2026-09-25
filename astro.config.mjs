@@ -1,0 +1,8 @@
+// @ts-check
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  site: 'https://brandt-haustechnik.vercel.app',
+  vite: { plugins: [tailwindcss()] },
+});

@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Datenschutzerklärung | Ebeling Haustechnik Göttingen';
+const description =
+  'Datenschutzerklärung von Ebeling Haustechnik: Hosting und Server-Logfiles, Kontaktformular, Telefon-Links, Ihre Rechte. Keine Cookies, keine Drittanbieter.';
+---
+
+<Layout title={title} description={description} path="/datenschutz">
+  <section class="prose-legal max-w-[42rem] pt-10 pb-12 sm:pt-16">
+    <p class="label text-copper">Rechtliches</p>
+    <h1 class="mt-4 font-extrabold text-[2rem] leading-none tracking-[-0.03em] sm:text-5xl">Datenschutzerklärung</h1>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      <strong>Ebeling Haustechnik</strong>, Inhaber Jan Ebeling<br />
+      Musterstraße 12, 37073 Göttingen<br />
+      Telefon: <a href="tel:+495511234567" class="num">0551 123 456 7</a><br />
+      E-Mail: <a href="mailto:kontakt@ebeling-haustechnik.de">kontakt@ebeling-haustechnik.de</a>
+    </p>
+
+    <h2>2. Was diese Website nicht tut</h2>
+    <p>
+      Diese Website setzt keine Cookies, verwendet keine Analyse- oder Tracking-Dienste, bindet keine Schriften,
+      Karten oder Videos von Drittanbietern ein und speichert nichts im Browser. Alle Dateien werden vom eigenen
+      Hosting ausgeliefert.
+    </p>
+
+    <h2>3. Hosting und Server-Logfiles</h2>
+    <p>
+      Die Website wird bei Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA, gehostet. Beim Aufruf einer
+      Seite verarbeitet der Server automatisch technische Daten, die Ihr Browser übermittelt:
+    </p>
+    <ul>
+      <li>IP-Adresse (gekürzt), Datum und Uhrzeit des Zugriffs</li>
+      <li>aufgerufene Seite, übertragene Datenmenge, HTTP-Statuscode</li>
+      <li>Browsertyp und Betriebssystem, zuvor besuchte Seite (Referrer)</li>
+    </ul>
+    <p>
+      Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse ist der sichere und stabile
+      Betrieb der Website. Die Logfiles werden nach kurzer Zeit gelöscht. Vercel ist nach dem EU-US Data Privacy
+      Framework zertifiziert; ergänzend gelten die Standardvertragsklauseln der EU-Kommission.
+    </p>
+
+    <h2>4. Kontaktformular</h2>
+    <p>
+      Wenn Sie das Formular nutzen, verarbeiten wir Ihren Namen, Ihre Telefonnummer und den Text Ihrer Nachricht, um
+      Ihre Anfrage zu beantworten und einen Termin zu vereinbaren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
+      (Vertragsanbahnung). Die Angaben werden per E-Mail an uns übermittelt und gelöscht, sobald die Anfrage
+      abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen.
+    </p>
+    <p>
+      Das Formular enthält ein verstecktes Feld zur Abwehr automatisierter Eingaben (Spam-Schutz). Es wird nicht
+      angezeigt und speichert keine Daten von Ihnen.
+    </p>
+    <p>
+      Hinweis für diese Demo: Das Formular versendet nichts. Beim Absenden wird nur eine Bestätigung angezeigt und ein
+      Link angeboten, der Ihr eigenes E-Mail-Programm öffnet. Es werden keine Daten an uns übertragen.
+    </p>
+
+    <h2>5. Telefon- und E-Mail-Links</h2>
+    <p>
+      Die Rufnummern und die E-Mail-Adresse auf dieser Website sind als Links hinterlegt (tel: und mailto:). Beim
+      Antippen öffnet sich Ihre Telefon- oder E-Mail-App. Die Website selbst verarbeitet oder speichert dabei keine
+      Daten. Was Sie uns am Telefon oder per E-Mail mitteilen, verwenden wir nur zur Bearbeitung Ihres Anliegens (Art. 6
+      Abs. 1 lit. b DSGVO).
+    </p>
+
+    <h2>6. Ihre Rechte</h2>
+    <p>Sie haben gegenüber uns folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+    <ul>
+      <li>Auskunft (Art. 15 DSGVO)</li>
+      <li>Berichtigung (Art. 16 DSGVO) und Löschung (Art. 17 DSGVO)</li>
+      <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+      <li>Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO)</li>
+    </ul>
+    <p>
+      Außerdem können Sie sich bei einer Datenschutzaufsichtsbehörde beschweren. Für Niedersachsen ist das die
+      Landesbeauftragte für den Datenschutz Niedersachsen, Prinzenstraße 5, 30159 Hannover.
+    </p>
+
+    <h2>7. Stand</h2>
+    <p>September 2026. Wir passen diese Erklärung an, wenn sich die Website oder die Rechtslage ändert.</p>
+  </section>
+</Layout>

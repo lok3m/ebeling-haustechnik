@@ -1,0 +1,410 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title =
+  'Ebeling Haustechnik | Klempner & Heizung Göttingen, Notdienst 24/7';
+const description =
+  'Meisterbetrieb für Sanitär, Heizung und Rohrreparatur in Göttingen. Festpreis vorab, 2 Stunden Reaktionszeit im Notdienst, seit 2006. Notdienst: 0551 999 000.';
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Plumber',
+  name: 'Ebeling Haustechnik',
+  description,
+  url: 'https://brandt-haustechnik.vercel.app/',
+  telephone: '+495511234567',
+  email: 'kontakt@ebeling-haustechnik.de',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Musterstraße 12',
+    postalCode: '37073',
+    addressLocality: 'Göttingen',
+    addressRegion: 'Niedersachsen',
+    addressCountry: 'DE',
+  },
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: {
+      '@type': 'GeoCoordinates',
+      latitude: 51.5328,
+      longitude: 9.9351,
+    },
+    geoRadius: 30000,
+  },
+  foundingDate: '2006',
+  priceRange: '€€',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '07:00',
+      closes: '18:00',
+    },
+  ],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'emergency',
+      telephone: '+49551999000',
+      availableLanguage: 'de',
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday',
+        ],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    },
+  ],
+};
+---
+
+<Layout title={title} description={description} path="/">
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </Fragment>
+
+  <!-- Hero: compact, phone-first. Number and both tap targets above the fold on 390 px. -->
+  <section class="pt-8 pb-6 sm:pt-14 sm:pb-8 lg:pt-20 lg:pb-10" aria-labelledby="hero-title">
+    <p class="label text-copper">Klempner &amp; Heizung · Göttingen</p>
+    <h1
+      id="hero-title"
+      class="mt-4 font-extrabold text-[2.75rem] leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-7xl"
+    >
+      Rohre.<br />Heizung.<br /><span class="text-copper">Erledigt.</span>
+    </h1>
+    <p class="mt-5 max-w-[34rem] text-[17px] text-ink-mute leading-relaxed sm:text-lg">
+      Meisterbetrieb für Sanitär, Heizung und Rohrreparatur in Göttingen. Festpreis vor Arbeitsbeginn, Notdienst rund um
+      die Uhr.
+    </p>
+
+    <div class="mt-7 grid max-w-[34rem] gap-3 sm:grid-cols-[1.4fr_1fr]">
+      <a
+        href="tel:+49551999000"
+        class="group flex min-h-16 flex-col justify-center rounded-cell bg-copper px-5 py-3 text-on-copper hover:bg-copper-deep"
+      >
+        <span class="label text-on-copper-mute">Notdienst anrufen · 24/7</span>
+        <span class="num mt-1 font-bold text-2xl leading-none sm:text-[1.75rem]">0551 999 000</span>
+      </a>
+      <a
+        href="#anfrage"
+        class="flex min-h-16 items-center justify-center rounded-cell border border-line bg-cell px-5 py-3 font-semibold text-base hover:bg-cell-raised"
+      >
+        Termin anfragen
+      </a>
+    </div>
+
+    <p class="status-dot mt-5 text-ink-mute text-sm" data-status data-state="unknown">
+      Büro Mo bis Fr 7 bis 18 Uhr. Notdienst rund um die Uhr.
+    </p>
+  </section>
+
+  <!-- Bento -->
+  <section id="leistungen" class="pb-10 sm:pb-14" aria-label="Leistungen und Kontakt">
+    <h2 class="sr-only">Leistungen, Öffnungszeiten und Kontakt</h2>
+    <div class="bento">
+      <!-- NOTDIENST: accent, largest cell -->
+      <article class="cell area-notdienst bg-copper text-on-copper" data-reveal>
+        <p class="label text-on-copper-mute">Notdienst · 24/7</p>
+        <h3 class="font-extrabold text-2xl leading-tight tracking-tight sm:text-3xl lg:text-[2.25rem]">
+          Rohrbruch um drei Uhr nachts? Rufen Sie an.
+        </h3>
+        <a
+          href="tel:+49551999000"
+          class="num block font-extrabold text-[2.5rem] leading-none tracking-tight underline decoration-2 underline-offset-8 hover:decoration-4 sm:text-5xl lg:text-6xl"
+        >
+          0551 999 000
+        </a>
+        <p class="max-w-[30rem] text-[15px] text-on-copper leading-relaxed sm:text-base">
+          Wasserschaden, Heizungsausfall, verstopfter Abfluss: wir sind in der Regel innerhalb von 2 Stunden vor Ort,
+          auch nachts, am Wochenende und an Feiertagen. Den Preis nennen wir Ihnen vor Beginn der Arbeit.
+        </p>
+        <div class="mt-2 rounded-cell border border-on-copper-mute/30 p-4">
+          <p class="label text-on-copper-mute">Bis wir da sind</p>
+          <ol class="num mt-3 grid gap-2 text-[15px] leading-snug sm:grid-cols-3 sm:gap-4">
+            <li class="flex gap-2"><span class="font-bold">1</span><span class="font-sans">Haupthahn zudrehen, meist im Keller oder am Wasserzähler.</span></li>
+            <li class="flex gap-2"><span class="font-bold">2</span><span class="font-sans">Sicherung für den nassen Bereich ausschalten.</span></li>
+            <li class="flex gap-2"><span class="font-bold">3</span><span class="font-sans">Fotos vom Schaden machen, das hilft bei der Versicherung.</span></li>
+          </ol>
+        </div>
+        <ul class="label mt-auto flex flex-wrap gap-x-5 gap-y-2 text-on-copper-mute">
+          <li>Göttingen + 30 km</li>
+          <li>2 h Reaktionszeit</li>
+          <li>Festpreis</li>
+        </ul>
+      </article>
+
+      <!-- ROHRREPARATUR: steel -->
+      <article class="cell area-rohr bg-steel text-steel-ink" data-reveal>
+        <p class="label text-steel-mute">Rohrreparatur</p>
+        <h3 class="font-bold text-xl leading-snug tracking-tight">Rohrbruch, Leckage, Verstopfung</h3>
+        <p class="text-[15px] text-steel-mute leading-relaxed">
+          Wir orten die Ursache, reparieren dauerhaft und hinterlassen die Baustelle sauber. Bei Wasserschäden
+          dokumentieren wir alles für Ihre Versicherung.
+        </p>
+      </article>
+
+      <!-- ÖFFNUNGSZEITEN -->
+      <article class="cell area-hours" data-reveal>
+        <p class="label text-ink-mute">Öffnungszeiten</p>
+        <dl class="num grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-[15px]">
+          <dt class="text-ink-mute">Mo bis Fr</dt>
+          <dd class="whitespace-nowrap font-semibold">07:00 bis 18:00</dd>
+          <dt class="text-ink-mute">Sa, So</dt>
+          <dd class="font-semibold">Notdienst</dd>
+          <dt class="text-ink-mute">Feiertag</dt>
+          <dd class="font-semibold">Notdienst</dd>
+        </dl>
+        <p class="status-dot mt-auto text-ink-mute text-sm" data-status data-state="unknown">
+          Büro Mo bis Fr 7 bis 18 Uhr. Notdienst rund um die Uhr.
+        </p>
+      </article>
+
+      <!-- HEIZUNG: steel, wide -->
+      <article class="cell area-heizung bg-steel text-steel-ink" data-reveal>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="flex flex-col gap-3">
+            <p class="label text-steel-mute">Heizung</p>
+            <h3 class="font-bold text-xl leading-snug tracking-tight">Gas, Öl, Wärmepumpe</h3>
+            <p class="text-[15px] text-steel-mute leading-relaxed">
+              Einbau, Wartung und Reparatur aller gängigen Systeme. Jährliche Wartung mit Erinnerung, damit die Heizung
+              im Winter nicht ausfällt.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 border-steel-mute/25 border-t pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-5">
+            <p class="label text-steel-mute">Wärmepumpe 2026</p>
+            <p class="text-[15px] text-steel-mute leading-relaxed">
+              Wir prüfen vor Ort, ob Ihr Haus für eine Wärmepumpe geeignet ist, rechnen die Heizlast und begleiten Sie
+              beim Förderantrag. Ehrlich, auch wenn die alte Gasheizung noch die bessere Wahl ist.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- SANITÄR -->
+      <article class="cell area-sanitaer" data-reveal>
+        <p class="label text-ink-mute">Sanitär &amp; Bad</p>
+        <h3 class="font-bold text-xl leading-snug tracking-tight">Von der Armatur bis zum neuen Bad</h3>
+        <p class="text-[15px] text-ink-mute leading-relaxed">
+          Reparatur, Austausch und komplette Badsanierung aus einer Hand. Fliesen und Elektrik übernehmen feste
+          Partnerbetriebe aus Göttingen.
+        </p>
+      </article>
+
+      <!-- EINSATZGEBIET -->
+      <article class="cell area-area" data-reveal>
+        <p class="label text-ink-mute">Einsatzgebiet</p>
+        <h3 class="font-bold text-xl leading-snug tracking-tight">Göttingen und 30 km</h3>
+        <p class="text-[15px] text-ink-mute leading-relaxed">
+          Rosdorf, Bovenden, Northeim, Duderstadt, Hann. Münden und alles dazwischen. Anfahrt im Festpreis enthalten.
+        </p>
+      </article>
+
+      <!-- FAKTEN -->
+      <article class="cell area-facts" data-reveal>
+        <p class="label text-ink-mute">Auf einen Blick</p>
+        <dl class="grid grid-cols-2 gap-x-5 gap-y-5">
+          <div>
+            <dt class="num font-extrabold text-3xl leading-none tracking-tight">Meister</dt>
+            <dd class="mt-2 text-[13px] text-ink-mute leading-snug">
+              Meisterbetrieb, eingetragen bei der Handwerkskammer Hildesheim-Südniedersachsen
+            </dd>
+          </div>
+          <div>
+            <dt class="num font-extrabold text-3xl leading-none tracking-tight">2006</dt>
+            <dd class="mt-2 text-[13px] text-ink-mute leading-snug">Familienbetrieb, in zweiter Generation geführt</dd>
+          </div>
+          <div>
+            <dt class="num font-extrabold text-3xl leading-none tracking-tight">Festpreis</dt>
+            <dd class="mt-2 text-[13px] text-ink-mute leading-snug">
+              Preis vor Arbeitsbeginn, keine Nachberechnung. Kostenvoranschlag kostenlos
+            </dd>
+          </div>
+          <div>
+            <dt class="num font-extrabold text-3xl leading-none tracking-tight">2 h</dt>
+            <dd class="mt-2 text-[13px] text-ink-mute leading-snug">Reaktionszeit im Notdienst, Tag und Nacht</dd>
+          </div>
+        </dl>
+      </article>
+
+      <!-- ABLAUF -->
+      <article class="cell area-ablauf" data-reveal>
+        <p class="label text-ink-mute">So läuft es</p>
+        <ol class="grid gap-4 sm:grid-cols-3">
+          <li class="flex gap-3">
+            <span class="num font-extrabold text-2xl text-copper leading-none">1</span>
+            <p class="text-[15px] leading-snug">
+              <strong class="font-bold">Anrufen oder anfragen.</strong> <span class="text-ink-mute">Sie schildern kurz das Problem.</span>
+            </p>
+          </li>
+          <li class="flex gap-3">
+            <span class="num font-extrabold text-2xl text-copper leading-none">2</span>
+            <p class="text-[15px] leading-snug">
+              <strong class="font-bold">Festpreis.</strong> <span class="text-ink-mute">Sie bekommen den Preis, bevor wir anfangen.</span>
+            </p>
+          </li>
+          <li class="flex gap-3">
+            <span class="num font-extrabold text-2xl text-copper leading-none">3</span>
+            <p class="text-[15px] leading-snug">
+              <strong class="font-bold">Erledigt.</strong> <span class="text-ink-mute">Wir kommen zum Termin, reparieren und räumen auf.</span>
+            </p>
+          </li>
+        </ol>
+      </article>
+
+      <!-- FAMILIE EBELING -->
+      <article class="cell area-familie" data-reveal>
+        <p class="label text-ink-mute">Familie Ebeling</p>
+        <p class="text-[15px] leading-relaxed">
+          Wir sind ein Familienbetrieb aus Göttingen. Seit 2006 kümmern wir uns um Heizung und Wasser in Häusern,
+          Wohnungen und Praxen der Region. Wer bei uns anruft, spricht mit jemandem, der morgen auch selbst vor der Tür
+          steht.
+        </p>
+      </article>
+
+      <!-- KONTAKT -->
+      <article class="cell area-kontakt" data-reveal>
+        <p class="label text-ink-mute">Kontakt</p>
+        <address class="flex flex-col gap-3 text-[15px] not-italic">
+          <p>
+            <span class="block text-ink-mute">Anschrift</span>
+            Ebeling Haustechnik<br />Musterstraße 12<br />37073 Göttingen
+          </p>
+          <p>
+            <span class="block text-ink-mute">Büro</span>
+            <a href="tel:+495511234567" class="num font-semibold underline decoration-line underline-offset-4 hover:decoration-copper">0551 123 456 7</a>
+          </p>
+          <p>
+            <span class="block text-ink-mute">Notdienst</span>
+            <a href="tel:+49551999000" class="num font-semibold text-copper underline decoration-copper/40 underline-offset-4 hover:decoration-copper">0551 999 000</a>
+          </p>
+          <p>
+            <span class="block text-ink-mute">E-Mail</span>
+            <a href="mailto:kontakt@ebeling-haustechnik.de" class="text-[13px] underline decoration-line underline-offset-4 [overflow-wrap:anywhere] hover:decoration-copper">kontakt@ebeling-haustechnik.de</a>
+          </p>
+        </address>
+      </article>
+
+      <!-- FORMULAR -->
+      <article class="cell area-form" id="anfrage" data-reveal>
+        <p class="label text-ink-mute">Termin anfragen</p>
+        <div class="grid gap-6 lg:grid-cols-[1fr_1.6fr]">
+          <div class="flex flex-col gap-3">
+            <h3 class="font-extrabold text-2xl leading-tight tracking-tight sm:text-3xl">
+              Kein Notfall? Dann hier.
+            </h3>
+            <p class="text-[15px] text-ink-mute leading-relaxed">
+              Badumbau, Heizungswartung, tropfender Hahn: schreiben Sie uns kurz, was ansteht. Wir melden uns am
+              nächsten Werktag mit einem Terminvorschlag. Der Kostenvoranschlag ist kostenlos.
+            </p>
+          </div>
+
+          <form
+            id="anfrage-form"
+            class="grid gap-4 sm:grid-cols-2"
+            action="mailto:kontakt@ebeling-haustechnik.de"
+            method="post"
+            enctype="text/plain"
+          >
+            <div class="field">
+              <label for="f-name" class="label text-ink-mute">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-tel" class="label text-ink-mute">Telefon</label>
+              <input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required />
+            </div>
+            <div class="field sm:col-span-2">
+              <label for="f-msg" class="label text-ink-mute">Was steht an?</label>
+              <textarea id="f-msg" name="nachricht" rows="4" required></textarea>
+            </div>
+            <div class="sr-only" aria-hidden="true">
+              <label for="f-company">Firmenwebsite (bitte leer lassen)</label>
+              <input id="f-company" name="company_url" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+              <button
+                type="submit"
+                class="min-h-12 shrink-0 whitespace-nowrap rounded-cell bg-copper px-6 py-3 font-bold text-on-copper hover:bg-copper-deep"
+              >
+                Anfrage senden
+              </button>
+              <p class="text-ink-mute text-xs leading-snug">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung der Anfrage zu. <a href="/datenschutz" class="underline underline-offset-4 hover:text-ink">Datenschutz</a>
+              </p>
+            </div>
+          </form>
+
+          <div id="anfrage-ok" class="hidden flex-col gap-3 rounded-cell bg-ground p-5 lg:col-start-2" role="status" tabindex="-1">
+            <p class="label text-copper">Anfrage vorgemerkt</p>
+            <p class="font-bold text-lg leading-snug">Danke, wir melden uns am nächsten Werktag.</p>
+            <p class="text-[15px] text-ink-mute leading-relaxed">
+              Das ist eine Demo: in der echten Website landet die Anfrage per E-Mail beim Betrieb. Sie können den Text
+              auch direkt in Ihrem Mailprogramm öffnen:
+            </p>
+            <a id="anfrage-mailto" href="mailto:kontakt@ebeling-haustechnik.de" class="font-semibold text-copper underline underline-offset-4">
+              Anfrage als E-Mail öffnen
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    // "Jetzt erreichbar" status from Europe/Berlin time. Fallback text stays if anything fails.
+    const setStatus = () => {
+      const fmt = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Europe/Berlin',
+        weekday: 'short',
+        hour: 'numeric',
+        hourCycle: 'h23',
+      });
+      const parts = fmt.formatToParts(new Date());
+      const wd = parts.find((p) => p.type === 'weekday')?.value ?? '';
+      const h = Number(parts.find((p) => p.type === 'hour')?.value ?? -1);
+      if (!wd || Number.isNaN(h) || h < 0) return;
+      const weekday = !['Sat', 'Sun'].includes(wd);
+      const open = weekday && h >= 7 && h < 18;
+      const text = open
+        ? `Jetzt erreichbar. Büro geöffnet bis 18:00 Uhr, Notdienst rund um die Uhr.`
+        : 'Büro geschlossen. Notdienst jetzt erreichbar unter 0551 999 000.';
+      for (const el of document.querySelectorAll<HTMLElement>('[data-status]')) {
+        el.textContent = text;
+        el.dataset.state = open ? 'open' : 'closed';
+      }
+    };
+    setStatus();
+    window.setInterval(setStatus, 60_000);
+
+    // Demo form: no backend. Show success state and offer a prefilled mailto as fallback.
+    const form = document.getElementById('anfrage-form') as HTMLFormElement | null;
+    const ok = document.getElementById('anfrage-ok');
+    const mail = document.getElementById('anfrage-mailto') as HTMLAnchorElement | null;
+    form?.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const data = new FormData(form);
+      if (String(data.get('company_url') ?? '').trim() !== '') return; // honeypot
+      if (!form.reportValidity()) return;
+      const name = String(data.get('name') ?? '').trim();
+      const tel = String(data.get('tel') ?? '').trim();
+      const msg = String(data.get('nachricht') ?? '').trim();
+      const subject = encodeURIComponent(`Anfrage von ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nTelefon: ${tel}\n\n${msg}`);
+      if (mail) mail.href = `mailto:kontakt@ebeling-haustechnik.de?subject=${subject}&body=${body}`;
+      form.hidden = true;
+      if (ok) {
+        ok.classList.remove('hidden');
+        ok.classList.add('flex');
+        ok.focus();
+      }
+    });
+  </script>
+</Layout>

@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Impressum | Ebeling Haustechnik Göttingen';
+const description =
+  'Impressum von Ebeling Haustechnik, Meisterbetrieb für Sanitär und Heizung in Göttingen. Angaben gemäß § 5 DDG.';
+---
+
+<Layout title={title} description={description} path="/impressum">
+  <section class="prose-legal max-w-[42rem] pt-10 pb-12 sm:pt-16">
+    <p class="label text-copper">Rechtliches</p>
+    <h1 class="mt-4 font-extrabold text-[2rem] leading-none tracking-[-0.03em] sm:text-5xl">Impressum</h1>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>
+      <strong>Ebeling Haustechnik</strong><br />
+      Inhaber: Jan Ebeling<br />
+      Musterstraße 12<br />
+      37073 Göttingen
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      Telefon: <a href="tel:+495511234567" class="num">0551 123 456 7</a><br />
+      Notdienst: <a href="tel:+49551999000" class="num">0551 999 000</a><br />
+      E-Mail: <a href="mailto:kontakt@ebeling-haustechnik.de">kontakt@ebeling-haustechnik.de</a>
+    </p>
+
+    <h2>Berufsbezeichnung und Kammer</h2>
+    <p>
+      Berufsbezeichnung: Installateur- und Heizungsbauermeister (verliehen in der Bundesrepublik Deutschland)<br />
+      Zuständige Kammer: Handwerkskammer Hildesheim-Südniedersachsen, Braunschweiger Straße 53, 31134 Hildesheim<br />
+      Eingetragen in der Handwerksrolle unter der Betriebsnummer 000000 (Beispiel)
+    </p>
+    <p>
+      Berufsrechtliche Regelungen: Gesetz zur Ordnung des Handwerks (Handwerksordnung, HwO). Die Handwerksordnung ist
+      im Bundesgesetzblatt veröffentlicht und über die Website des Bundesministeriums der Justiz einsehbar.
+    </p>
+
+    <h2>Umsatzsteuer</h2>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE 000 000 000 (Beispiel)</p>
+
+    <h2>Verantwortlich für den Inhalt</h2>
+    <p>Jan Ebeling, Anschrift wie oben (§ 18 Abs. 2 MStV).</p>
+
+    <h2>Streitbeilegung</h2>
+    <p>
+      Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+      teilzunehmen.
+    </p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität
+      übernehmen wir jedoch keine Gewähr. Als Diensteanbieter sind wir für eigene Inhalte nach den allgemeinen Gesetzen
+      verantwortlich.
+    </p>
+
+    <h2>Hinweis zur Demo</h2>
+    <p>
+      Diese Website ist eine Demo von <a href="https://www.netvarstudio.de" rel="noopener">Netvar Studio</a>. Firma,
+      Anschrift, Telefonnummern und E-Mail-Adresse sind Beispieldaten und gehören zu keinem realen Betrieb.
+    </p>
+  </section>
+</Layout>
